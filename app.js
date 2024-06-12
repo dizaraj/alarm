@@ -6,43 +6,57 @@ audio.loop = true;
 var time = document.getElementById("time");
 var animate;
 
-function timer() {
-  // Disable the button
+function disableButton() {
   addBtn.disabled = true;
+}
+
+function enableButton() {
+  addBtn.disabled = false;
+}
+
+function updateProgressBar() {
+  bar.value -= 1;
+  time.innerHTML =
+    bar.value.toString().padStart(2, "0") +
+    `<span class="uk-badge" style="background: red;">seconds</span>`;
+}
+
+function playAudio(audioElement) {
+  if (audioElement.paused) {
+    audioElement.play();
+  }
+}
+
+function stopAudio(audioElement) {
+  audioElement.pause();
+  audioElement.currentTime = 0;
+}
+
+function timer() {
+  disableButton();
 
   animate = setInterval(function () {
-    // console.log(bar.value);
     if (bar.value <= 0) {
       clearInterval(animate);
-      audio.pause();
-      audio.currentTime = 0;
+      stopAudio(audio);
       endAudio.play();
       endAudio.loop = true;
-      // set alarm audio for 8 seconds
+
       setTimeout(function () {
-        endAudio.pause();
-        endAudio.currentTime = 0;
-        // Enable the button
-        addBtn.disabled = false;
+        stopAudio(endAudio);
+        enableButton();
       }, 8000);
     } else {
-      bar.value -= 1;
-      time.innerHTML =
-        bar.value.toString().padStart(2, "0") +
-        `<span class="uk-badge" style="background: red;">seconds</span>`;
-      if (audio.paused) {
-        audio.play();
-      }
+      updateProgressBar();
+      playAudio(audio);
     }
-    // console.log(bar.value);
   }, 1000);
 }
 
 addBtn.addEventListener("click", function () {
   if (animate) {
     clearInterval(animate);
-    audio.pause();
-    audio.currentTime = 0;
+    stopAudio(audio);
     bar.value = 60;
   }
   timer();
