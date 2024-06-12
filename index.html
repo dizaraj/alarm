@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dizaraj Alarm App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.5/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.5/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div uk-grid class="uk-flex-center uk-width-1-2">
+        <div id="app" class="uk-width-1-1">
+            <h1 id="time" class="uk-heading-3xlarge uk-text-success uk-text-bold uk-text-center">00</h1>
+            <progress id="js-progressbar" class="uk-progress" value="60" max="60"></progress>
+        </div>
+        <button id="addBtn" class="uk-button uk-button-primary"><span uk-icon="plus"></span> Start Alarm </button>
+    </div>
+
+    <script src="app.js">
+        
+    </script>
+
+
+</body>
+
+
+</html>
