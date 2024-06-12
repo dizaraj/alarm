@@ -1,7 +1,7 @@
 var addBtn = document.getElementById("addBtn");
 var bar = document.getElementById("js-progressbar");
-var audio = new Audio("/sounds/beep_01.wav");
-var endAudio = new Audio("/sounds/sound_01.wav");
+var audio = new Audio("/sounds/beep_01.mp3");
+var endAudio = new Audio("/sounds/sound_01.mp3");
 audio.loop = true;
 var time = document.getElementById("time");
 var animate;
